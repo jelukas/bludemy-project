@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% load courses_extras %}
+
+{% block title %}{{ course.title }}{% endblock %}
+
+{% block topmenu-items %}
+
+<ul class="nav navbar-nav">
+  <li>
+    <a href="{% url 'courses_index' %}" id="nav-back"><span class="glyphicon glyphicon-chevron-left"></span> Cursos</a>        
+  </li>
+</ul>
+
+
+<ul class="nav navbar-nav pull-right">
+  <li>
+    <a href="#?" id="nav-back" >{{ course.title }}</a>        
+  </li>
+</ul>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+
+      <div class="row">
+        <div id="live_sessions" class="col-lg-12 section">
+          <h2 class="section-title">Live Sessions</h2>
+          <ul class="list-group">
+            {% for live_session in live_sessions %}
+            <div class="lesson" id="live_session-{{ live_session.id }}">
+              <a class="list-group-item" href="{% url 'view_live' live_session.section.course.slug live_session.id %}">
+
+                <div class="lesson-info">
+                  <h3 class="list-group-item-heading lesson-title">
+                   {{ live_session.title }} - {{ live_session.start_date }}
+                  </h3>
+                  <p class="list-group-item-text lesson-description">{{ live_session.description }}</p>
+                </div>
+              </a>
+            </div>
+            {% empty %}
+              <span class="label label-warning">Ups! There is not Live Sessions</span>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+
+      {% for section in course.sections.all %}
+      <div class="row">
+        <div id="section-{{ section.id }}" class="col-lg-12 section">
+          <h2 class="section-title">{{ section.title }}</h2>
+          <ul class="list-group">
+            {% for lesson in section.lessons.all %}
+            <div class="lesson" id="lesson-{{ lesson.id }}">
+              <a class="list-group-item" href="{% url 'view_lesson' lesson.section.course.slug lesson.slug %}">
+                <div class="lesson-progress-indicator {% if lesson|is_completed_by_user:user.id %}complete{% endif %} ">
+                  <span class="lesson-progress-indicator-icon {% if lesson|is_completed_by_user:user.id %}complete{% endif %}"></span>
+                </div>
+
+                <div class="lesson-info">
+                  <h3 class="list-group-item-heading lesson-title">
+                    1. {{ lesson.title }}
+                  </h3>
+                  <p class="list-group-item-text lesson-description">{{ lesson.description }}</p>
+                </div>
+              </a>
+            </div>
+            {% empty %}
+              <span class="label label-warning">Ups! There is not Lessons</span>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% empty %}
+        <span class="label label-warning">UuhH! There is not Sections</span>
+      {% endfor %}
+
+      <hr>
+
+{% endblock %}

@@ -1,0 +1,188 @@
+body {
+	font-size: 18px;
+}
+
+footer {
+	padding: 30px 0;	
+}
+
+.btn-flat {
+	border-radius: 0;
+	padding: 1em;
+}
+
+/* this is a faux center fix for the nav options - adjust this if you wish to change the logo height or the font of the menu items */
+/*
+.nav {
+	margin-top: 0px; 
+}
+*/
+
+.container-fullwidth {  
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 100%;
+ }
+
+/* Signin Style */
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Navbars Style */
+.navbar-inverse {
+	background-color: #2c3e50;
+	border-color: #1a242f;
+	padding: 0.8em;
+}
+
+.navbar-inverse .navbar-nav > li > a{
+	color: white;
+}
+
+.navbar-lesson .navbar-brand {	
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 50%;
+	height: 100%;
+	margin-left: -100px !important;
+}
+
+/* Styles Course */
+.lesson {
+	overflow: hidden;
+}
+
+.lesson-title {
+	font-size: 1em;
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+
+.lesson-description {
+	color: #bdc3c7;
+	font-size: 0.9em;
+}
+
+.lesson-progress-indicator {
+	background-color: #eeeeee;
+	border-right: 1px solid #bdc3c7;
+	float: left;
+	height: 100%;
+	position: absolute;
+	width: 50px;
+}
+
+.lesson-progress-indicator.complete {
+	background-color: rgba(195,255,195,0.27);
+}
+
+.lesson .list-group-item {
+	padding: 0;
+}
+
+.lesson .lesson-info {
+	margin-left: 50px;
+	overflow: hidden;
+	padding: 18px;
+	zoom: 1;
+}
+
+.lesson .lesson-progress-indicator-icon {
+	color: #bdc3c7;
+	font-family: 'Glyphicons Halflings';
+	left: 50%;
+	margin-left: -9px;
+	margin-right: auto;
+	margin-top: -12.5px;
+	position: absolute;
+	top: 50%;
+}
+
+.lesson-progress-indicator-icon:before {
+	content: "\e157";
+}
+.lesson-progress-indicator-icon.complete:before {
+	color: #27ae60;
+	content: "\e084";
+}
+
+/* Styles Lesson */
+.lesson-content  {
+	font: 300 1.1em 'Lato',arial,verdana,helvetica,sans-serif;
+	line-height: 1.5;
+}
+
+
+/* WysiHTML5*/
+
+BODY.wysihtml5-editor {
+    padding: 5px;
+    font-size: 13px;
+}
+
+.wysihtml5-editor DIV,
+.wysihtml5-editor OL, .wysihtml5-editor OL LI,
+.wysihtml5-editor UL, .wysihtml5-editor UL LI,
+.wysihtml5-editor BLOCKQUOTE,
+.wysihtml5-editor P { font-size: 13px }
+.wysihtml5-editor H1 { font-size: 2.2em }
+.wysihtml5-editor H2 { font-size: 2.0em }
+.wysihtml5-editor H3 { font-size: 1.8em }
+.wysihtml5-editor H4 { font-size: 1.6em }
+.wysihtml5-editor H5 { font-size: 1.4em }
+.wysihtml5-editor H6 { font-size: 1.2em }
+
+.wysiwyg-color-green { color: green }
+.wysiwyg-color-silver { color: silver }
+.wysiwyg-color-maroon { color: maroon }
+.wysiwyg-color-gray { color: gray }
+.wysiwyg-color-red { color: red }
+.wysiwyg-color-purple { color: purple }
+.wysiwyg-color-olive { color: olive }
+.wysiwyg-color-navy { color: navy }
+.wysiwyg-color-blue { color: blue }
+
+.wysiwyg-text-align-left { text-align: left }
+.wysiwyg-text-align-center { text-align: center }
+.wysiwyg-text-align-right { text-align: right }
+
+.wysiwyg-float-left { float: left }
+.wysiwyg-float-right { float: right }
+
+IMG.wysiwyg-float-left { margin: 10px 20px 10px 0 }
+IMG.wysiwyg-float-right { margin: 10px 0 20px 10px }

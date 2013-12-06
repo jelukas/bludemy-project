@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ course.title }}{% endblock %}
+
+{% block extra_css %} {% load staticfiles %}
+	<link href="{% static 'css/prettify/dessert.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block topmenu-items %}
+<ul class="nav navbar-nav">
+  <li>
+    <a href="{% url 'view_course' lesson.section.course.slug %}" id="nav-back"><span class="glyphicon glyphicon-chevron-left"></span> Volver al Curso</a>        
+  </li>
+</ul>
+
+<ul class="nav navbar-nav pull-right">
+  <form action="{% url 'lesson_completed' %}" class="button_to" method="post">
+  	<div>
+  		<input class="btn btn-lg btn-success navbar-btn" type="submit" value="Completado &amp; Continuar">
+  		<input name="lesson_id" type="hidden" value="{{ lesson.id }}">
+  		{% csrf_token %}
+	</div>
+  </form>
+</ul>
+{% endblock %}
+
+
+{% block admin_navbar%}
+  {% if user.is_superuser %}
+   <div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Administration</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+        </ul>
+        
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="{% url 'admin:courses_lesson_change' lesson.id %}">Edit</a></li>
+          <li><a href="{% url 'admin:courses_lesson_delete' lesson.id %}">Delete</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </nav>
+    </div>
+  {% endif %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-12 lesson-content reponsive-video-container">
+          <h1>{{ lesson.title }}</h1>
+          {{ lesson.content | safe }}
+        </div>
+      </div>
+
+      <hr>
+
+      {% block comments %}
+      <div class="row">
+        <div class="col-lg-12 reponsive-video-container">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+              /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+              var disqus_shortname = '{{ disqus_shortname }}'; // required: replace example with your forum shortname
+              var disqus_identifier = disqus_shortname+'-{{ lesson.section.course.slug }}-lesson-{{ lesson.id }}';
+              var disqus_title = '{{ lesson.section.course.title }} - {{ lesson.title }}';
+              var disqus_url = 'http://ticlearning.com/{% url "view_lesson" lesson.section.course.slug lesson.slug %}';
+
+              /* * * DON'T EDIT BELOW THIS LINE * * */
+              (function() {
+                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+      </div>
+    
+      {% endblock %}
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+    <script src="{% static 'js/' %}"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('pre').addClass('prettyprint');
+            $(".reponsive-video-container").fitVids();
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,10 @@
+Django==1.6
+Pillow==2.2.1
+South==0.8.4
+Unipath==1.0
+Werkzeug==0.9.4
+django-admin-bootstrapped==1.6.3
+django-extensions==1.2.5
+django-registration==1.0
+django-wysiwyg-redactor==0.3.8
+six==1.4.1

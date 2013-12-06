@@ -1,0 +1,186 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Jesús Lucas Flores">
+
+    <title>{% block title %}Curso - Nombre del Curso{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    {% block extra_css %}
+    {% endblock %}
+  </head>
+
+  <body>
+  {% block header %}
+    <!-- Header Navigation -->
+    <header class="navbar navbar-inverse navbar-lesson" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Menu</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <!-- logo -->
+          <a class="navbar-brand" href="/"><img alt="Bludemy" class="navbar-brand-icon" width="50px" src="http://biz.turbulenz.com/pressAssets/tz-logo-white.png"> Bludemy</a>
+        </div>
+        <nav class="collapse navbar-collapse">
+            {% block topmenu-items %}
+            <ul class="nav navbar-nav pull-right">
+              <li>
+                <a href="#?" id="nav-back">The New Learning Experience</a>        
+              </li>
+            </ul>
+            {% endblock %}
+          </nav>
+      </div><!-- /.container -->
+    </header><!-- / Header Navigation -->
+     {% block admin_navbar %}
+     {% endblock %}
+  {% endblock %}
+
+{% block content %}
+    <div class="container">
+
+      <div class="row">
+        <div id="section-id1" class="col-lg-12 section">
+          <h2 class="section-title">Getting Started</h2>
+          <ul class="list-group">
+            <div class="lesson" id="id_of_step1">
+              <a class="list-group-item" href="lesson.html">
+                <div class="lesson-progress-indicator complete ">
+                  <span class="lesson-progress-indicator-icon complete"></span>
+                </div>
+
+                <div class="lesson-info">
+                  <h3 class="list-group-item-heading lesson-title">
+                    1. What We'll Be Making
+                  </h3>
+                  <p class="list-group-item-text lesson-description">A quick overview of what we'll be making in this class.</p>
+                </div>
+              </a>
+            </div>
+            <div class="lesson" id="id_of_step1">
+              <a class="list-group-item" href="/lesson/what-we-ll-be-making-pinteresting">
+                <div class="lesson-progress-indicator complete ">
+                  <span class="lesson-progress-indicator-icon complete"></span>
+                </div>
+
+                <div class="lesson-info">
+                  <h3 class="list-group-item-heading lesson-title">
+                    1. What We'll Be Making
+                  </h3>
+                  <p class="list-group-item-text lesson-description">A quick overview of what we'll be making in this class.</p>
+                </div>
+              </a>
+            </div>
+            <div class="lesson" id="id_of_step1">
+              <a class="list-group-item" href="/lesson/what-we-ll-be-making-pinteresting">
+                <div class="lesson-progress-indicator">
+                  <span class="lesson-progress-indicator-icon"></span>
+                </div>
+
+                <div class="lesson-info">
+                  <h3 class="list-group-item-heading lesson-title">
+                    1. What We'll Be Making
+                  </h3>
+                  <p class="list-group-item-text lesson-description">A quick overview of what we'll be making in this class.</p>
+                </div>
+              </a>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div id="section-id1" class="col-lg-12 section">
+          <h2 class="section-title">Getting Started</h2>
+          <ul class="list-group">
+            <div class="lesson" id="id_of_step1">
+              <a class="list-group-item" href="/lesson/what-we-ll-be-making-pinteresting">
+                <div class="lesson-progress-indicator complete ">
+                  <span class="lesson-progress-indicator-icon complete"></span>
+                </div>
+
+                <div class="lesson-info">
+                  <h3 class="list-group-item-heading lesson-title">
+                    1. What We'll Be Making
+                  </h3>
+                  <p class="list-group-item-text lesson-description">A quick overview of what we'll be making in this class.</p>
+                </div>
+              </a>
+            </div>
+            <div class="lesson" id="id_of_step1">
+              <a class="list-group-item" href="/lesson/what-we-ll-be-making-pinteresting">
+                <div class="lesson-progress-indicator complete ">
+                  <span class="lesson-progress-indicator-icon complete"></span>
+                </div>
+
+                <div class="lesson-info">
+                  <h3 class="list-group-item-heading lesson-title">
+                    1. What We'll Be Making
+                  </h3>
+                  <p class="list-group-item-text lesson-description">A quick overview of what we'll be making in this class.</p>
+                </div>
+              </a>
+            </div>
+            <div class="lesson" id="id_of_step1">
+              <a class="list-group-item" href="/lesson/what-we-ll-be-making-pinteresting">
+                <div class="lesson-progress-indicator">
+                  <span class="lesson-progress-indicator-icon"></span>
+                </div>
+
+                <div class="lesson-info">
+                  <h3 class="list-group-item-heading lesson-title">
+                    1. What We'll Be Making
+                  </h3>
+                  <p class="list-group-item-text lesson-description">A quick overview of what we'll be making in this class.</p>
+                </div>
+              </a>
+            </div>
+          </ul>
+        </div>
+      </div>
+
+      <hr>
+
+    </div><!-- /.container -->
+{% endblock %}      
+{% block footer %}
+    <div class="container ">
+      <footer>
+        <hr>
+        <div class="row">
+          <div class="col-lg-12">
+            <p>Copyright &copy; Jesús Lucas Flores 2013</p>
+          </div>
+        </div>
+      </footer>
+
+    </div><!-- /.container -->
+{% endblock %}
+    <!-- JavaScript -->
+    <script src="{% static 'js/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'js/jquery.fitvids.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    {% block extra_js %}
+    {% endblock %}
+
+  </body>
+</html>
