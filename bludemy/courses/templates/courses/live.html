@@ -17,7 +17,7 @@
 
 {% block admin_navbar%}
   {% if user.is_superuser %}
-     <div class="container">
+    <div class="container">
     <nav class="navbar navbar-default" role="navigation">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -48,7 +48,7 @@
 
 {% block content %}
 	<div class="col-lg-12">
-      <h1>{{ live.title }}</h1>
+      <h1>{{ live.title }} <a href="#?" id="light-off"><span class="glyphicon glyphicon-off"></span></a></h1>
       <div class="row">
         <div class="col-lg-{% if live.enable_chat %}7{% else %}12{% endif %} lesson-content reponsive-video-container">
           {{ live.content | safe }}
@@ -72,6 +72,18 @@
     <script type="text/javascript">
         $(function(){
             $(".reponsive-video-container").fitVids();
+
+            $('#light-off').on('click', function(event){
+              event.preventDefault();
+              $('body').append('<div id="sunglasses" style="background-color: rgba(0,0,0,0.8);; z-index:999; width: 100%; height: 100%;position: absolute; top:0; left:0;"><a href="#" id="light-on">Light On</a></div>');
+
+              $('.fluid-width-video-wrapper').css('z-index','1001');
+
+              $('#light-on').on('click', function(event){
+                event.preventDefault();
+                $('#sunglasses').remove();
+              });
+            });
         });
     </script>
 {% endblock %}

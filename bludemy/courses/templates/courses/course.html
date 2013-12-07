@@ -28,17 +28,20 @@
           <h2 class="section-title">Live Sessions</h2>
           <ul class="list-group">
             {% for live_session in live_sessions %}
-            <div class="lesson" id="live_session-{{ live_session.id }}">
-              <a class="list-group-item" href="{% url 'view_live' live_session.section.course.slug live_session.id %}">
+              {% if live_session.start_date.date == today_date %}
+              <div class="lesson live" id="live_session-{{ live_session.id }}">
+                <a class="list-group-item" href="{% url 'view_live' live_session.section.course.slug live_session.id %}">
 
-                <div class="lesson-info">
-                  <h3 class="list-group-item-heading lesson-title">
-                   {{ live_session.title }} - {{ live_session.start_date }}
-                  </h3>
-                  <p class="list-group-item-text lesson-description">{{ live_session.description }}</p>
-                </div>
-              </a>
-            </div>
+                  <div class="lesson-info">
+                    <h3 class="list-group-item-heading lesson-title">
+                     {{ live_session.title }} - {{ live_session.start_date }}
+                     <button class="btn btn-lg btn-danger pull-right" href="#"><span class="glyphicon glyphicon glyphicon-record"></span> LIVE</button>
+                    </h3>
+                    <p class="list-group-item-text lesson-description">{{ live_session.description }}</p>
+                  </div>
+                </a>
+              </div>
+              {% endif %}
             {% empty %}
               <span class="label label-warning">Ups! There is not Live Sessions</span>
             {% endfor %}

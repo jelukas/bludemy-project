@@ -20,8 +20,8 @@
     <td>{{ form.password }}</td>
 </tr>
 </table>
-<p>{% blocktrans %}<a href="{{ auth_pwd_reset_url }}">Forgot</a> your password?</p>
-<p><a href="{{ register_url }}">Need an account</a>?{% endblocktrans %}</p>
+<p>{% blocktrans %}<a href="{% url 'auth_password_reset' %}">Forgot</a> your password?</p>
+<p><a href="{% url 'registration_register' %}">Need an account</a>?{% endblocktrans %}</p>
 
 <input class="btn btn-success" type="submit" value="{% trans "login" %}" />
 <input type="hidden" name="next" value="{{ next }}" />

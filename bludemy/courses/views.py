@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.shortcuts import render_to_response, RequestContext, Http404, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
@@ -14,8 +15,9 @@ def index(request):
 @enrolled_required
 def view_course(request,course_slug):
 	course = get_object_or_404(Course, slug=course_slug)
-	live_sessions = Live.objects.filter(section__course_id=course.id)
-	return render_to_response('courses/course.html', {'course': course, 'live_sessions': live_sessions}, context_instance=RequestContext(request))
+	live_sessions = Live.objects.filter(section__course_id=course.id, active=True)
+	today_date = datetime.today().date()
+	return render_to_response('courses/course.html', {'course': course, 'live_sessions': live_sessions, 'today_date': today_date}, context_instance=RequestContext(request))
 
 @login_required
 @enrolled_required

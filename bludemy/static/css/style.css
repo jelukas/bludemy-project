@@ -82,7 +82,8 @@ footer {
 	margin-left: -100px !important;
 }
 
-/* Styles Course */
+/* Styles Course Index */
+
 .lesson {
 	overflow: hidden;
 }
@@ -136,11 +137,19 @@ footer {
 .lesson-progress-indicator-icon:before {
 	content: "\e157";
 }
+
 .lesson-progress-indicator-icon.complete:before {
 	color: #27ae60;
 	content: "\e084";
 }
 
+.live .list-group-item {
+	background-color: rgb(255, 249, 249);
+
+}
+.live {
+	margin-bottom: 0.3em;
+}
 /* Styles Lesson */
 .lesson-content  {
 	font: 300 1.1em 'Lato',arial,verdana,helvetica,sans-serif;
