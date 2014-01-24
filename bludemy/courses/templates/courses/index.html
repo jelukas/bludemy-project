@@ -14,12 +14,12 @@
               <div class="panel-body">
                 <div class="media">
                   <a class="pull-left" href="{% url 'view_course' course.slug %}">
-                    <img alt="Logo del Curso" class="media-object img-rounded" src="http://lorempixel.com/128/89/">
+                    <img alt="Logo del Curso" class="media-object img-rounded" src="http://www.doplim.com.mx/adpics/2011/11/30/64ed6f1648a456-ejecutivos-mercadotecnia-ventas-y-promocion--6618_3.jpg">
                   </a>      
                   <div class="media-body">
                     <h2 class="media-heading"><a href="{% url 'view_course' course.slug %}">{{ course.title }}</a></h2>
                     <a class="btn btn-lg btn-success pull-right" href="{% url 'view_course' course.slug %}">Start now</a>
-                    <p>The same class you know and love, updated for Rails 4, Ruby 2</p>
+                    <p>{{ course.description }}</p>
                   </div>
                 </div>
               </div>
